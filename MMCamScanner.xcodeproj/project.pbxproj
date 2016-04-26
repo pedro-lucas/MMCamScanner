@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A91396B4A50CEE7A7678EC5 /* libPods-MMCamScanner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D090650A9F77188A4C3C7C /* libPods-MMCamScanner.a */; };
 		550931641B26C2A500E243F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 550931631B26C2A500E243F8 /* main.m */; };
 		550931671B26C2A500E243F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 550931661B26C2A500E243F8 /* AppDelegate.m */; };
 		5509316A1B26C2A500E243F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 550931691B26C2A500E243F8 /* ViewController.m */; };
@@ -34,8 +35,6 @@
 		556A929F1B70D16C00187063 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 556A929C1B70D16C00187063 /* ProgressHUD.bundle */; };
 		556A92A01B70D16C00187063 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 556A929E1B70D16C00187063 /* ProgressHUD.m */; };
 		5570AFB91B4122F900978131 /* UploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5570AFB81B4122F900978131 /* UploadManager.m */; };
-		5585D5C91B8D796F00DB7D3F /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5585D5C81B8D796F00DB7D3F /* TesseractOCR.framework */; };
-		5585D5CB1B8D797C00DB7D3F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5585D5CA1B8D797C00DB7D3F /* opencv2.framework */; };
 		55C807CA1B4AA5A700C096BF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C807C91B4AA5A700C096BF /* CoreTelephony.framework */; };
 		55FDF9971B2A9061001400E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDF9961B2A9061001400E1 /* ViewController.swift */; };
 		55FDF9991B2AAEA7001400E1 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FDF9981B2AAEA7001400E1 /* AssetsLibrary.framework */; };
@@ -97,14 +96,15 @@
 		556A929E1B70D16C00187063 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		5570AFB71B4122F900978131 /* UploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadManager.h; sourceTree = "<group>"; };
 		5570AFB81B4122F900978131 /* UploadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadManager.m; sourceTree = "<group>"; };
-		5585D5C81B8D796F00DB7D3F /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
-		5585D5CA1B8D797C00DB7D3F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		55C807C91B4AA5A700C096BF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		55FDF9951B2A9060001400E1 /* MMCamScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMCamScanner-Bridging-Header.h"; sourceTree = "<group>"; };
 		55FDF9961B2A9061001400E1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55FDF9981B2AAEA7001400E1 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		55FDF99A1B2B0851001400E1 /* UIColor+HexRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRepresentation.h"; sourceTree = "<group>"; };
 		55FDF99B1B2B0851001400E1 /* UIColor+HexRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRepresentation.m"; sourceTree = "<group>"; };
+		97D090650A9F77188A4C3C7C /* libPods-MMCamScanner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMCamScanner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB1B01FB9460F4F5C92C9818 /* Pods-MMCamScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMCamScanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner.release.xcconfig"; sourceTree = "<group>"; };
+		DDED73F94B41D9C2F4078307 /* Pods-MMCamScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMCamScanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,12 +115,11 @@
 				554243B51B666D49000FEB8D /* MobileCoreServices.framework in Frameworks */,
 				55C807CA1B4AA5A700C096BF /* CoreTelephony.framework in Frameworks */,
 				5556DD7E1B314FEA00564C82 /* CoreImage.framework in Frameworks */,
-				5585D5CB1B8D797C00DB7D3F /* opencv2.framework in Frameworks */,
 				554649881B3055C8003B2AC4 /* libstdc++.dylib in Frameworks */,
-				5585D5C91B8D796F00DB7D3F /* TesseractOCR.framework in Frameworks */,
 				55FDF9991B2AAEA7001400E1 /* AssetsLibrary.framework in Frameworks */,
 				550931A11B26EE0400E243F8 /* CoreGraphics.framework in Frameworks */,
 				550931881B26C4F300E243F8 /* AVFoundation.framework in Frameworks */,
+				0A91396B4A50CEE7A7678EC5 /* libPods-MMCamScanner.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +146,8 @@
 				5509315F1B26C2A500E243F8 /* Products */,
 				550931891B26C50900E243F8 /* FrameWorks */,
 				55FDF9951B2A9060001400E1 /* MMCamScanner-Bridging-Header.h */,
+				C19998FDA70E08DCE7646CB2 /* Pods */,
+				7624F99B5AB561949CB28402 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,8 +218,6 @@
 		550931891B26C50900E243F8 /* FrameWorks */ = {
 			isa = PBXGroup;
 			children = (
-				5585D5CA1B8D797C00DB7D3F /* opencv2.framework */,
-				5585D5C81B8D796F00DB7D3F /* TesseractOCR.framework */,
 				5556DD7D1B314FEA00564C82 /* CoreImage.framework */,
 				55FDF9981B2AAEA7001400E1 /* AssetsLibrary.framework */,
 				550931A01B26EE0400E243F8 /* CoreGraphics.framework */,
@@ -273,6 +272,23 @@
 			path = ProgressHUD;
 			sourceTree = "<group>";
 		};
+		7624F99B5AB561949CB28402 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97D090650A9F77188A4C3C7C /* libPods-MMCamScanner.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C19998FDA70E08DCE7646CB2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDED73F94B41D9C2F4078307 /* Pods-MMCamScanner.debug.xcconfig */,
+				BB1B01FB9460F4F5C92C9818 /* Pods-MMCamScanner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,9 +296,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 550931811B26C2A600E243F8 /* Build configuration list for PBXNativeTarget "MMCamScanner" */;
 			buildPhases = (
+				9739F0A0CE9132B9340BFEF2 /* Check Pods Manifest.lock */,
 				5509315A1B26C2A500E243F8 /* Sources */,
 				5509315B1B26C2A500E243F8 /* Frameworks */,
 				5509315C1B26C2A500E243F8 /* Resources */,
+				1F35DDD5ACECC3824C101D39 /* Embed Pods Frameworks */,
+				A07A51559B57EA32E99B2E98 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,7 +336,8 @@
 		550931561B26C2A500E243F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = madapps;
 				TargetAttributes = {
 					5509315D1B26C2A500E243F8 = {
@@ -376,6 +396,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F35DDD5ACECC3824C101D39 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9739F0A0CE9132B9340BFEF2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A07A51559B57EA32E99B2E98 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5509315A1B26C2A500E243F8 /* Sources */ = {
@@ -458,7 +526,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -499,6 +569,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -517,6 +588,7 @@
 		};
 		550931821B26C2A600E243F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDED73F94B41D9C2F4078307 /* Pods-MMCamScanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -528,6 +600,7 @@
 				INFOPLIST_FILE = MMCamScanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mmscanner.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MMCamScanner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -536,6 +609,7 @@
 		};
 		550931831B26C2A600E243F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB1B01FB9460F4F5C92C9818 /* Pods-MMCamScanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -547,6 +621,7 @@
 				INFOPLIST_FILE = MMCamScanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mmscanner.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MMCamScanner-Bridging-Header.h";
 			};
@@ -566,6 +641,7 @@
 				);
 				INFOPLIST_FILE = MMCamScannerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mmscanner.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MMCamScanner.app/MMCamScanner";
 			};
@@ -581,6 +657,7 @@
 				);
 				INFOPLIST_FILE = MMCamScannerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mmscanner.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MMCamScanner.app/MMCamScanner";
 			};

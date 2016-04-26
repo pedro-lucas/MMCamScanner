@@ -80,11 +80,11 @@
 /*OCR Method Implementation*/
 -(void)OCR:(UIImage *)image{
     // Create RecognitionOperation
-    G8RecognitionOperation *operation = [[G8RecognitionOperation alloc] init];
+    G8RecognitionOperation *operation = [[G8RecognitionOperation alloc] initWithLanguage:@"eng+pt"];
     
     // Configure inner G8Tesseract object as described before
     operation.tesseract.language = @"eng";
-//    operation.tesseract.charWhitelist = @"01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    operation.tesseract.charWhitelist = @"01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     operation.tesseract.image = [image g8_blackAndWhite];
     operation.tesseract.delegate=self;
     // Setup the recognitionCompleteBlock to receive the Tesseract object
@@ -158,6 +158,8 @@
      [_invokeCamera dismissViewControllerAnimated:YES completion:nil];
     [_invokeCamera removeFromParentViewController];
     ripple=nil;
+    
+    [self OCR:[info objectForKey:UIImagePickerControllerOriginalImage]];
     
     CropViewController *crop=[self.storyboard instantiateViewControllerWithIdentifier:@"crop"];
     crop.cropdelegate=self;
