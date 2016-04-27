@@ -84,7 +84,7 @@
     G8RecognitionOperation *operation = [[G8RecognitionOperation alloc] initWithLanguage:@"por"];
     
     operation.tesseract.charWhitelist = @"01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,$:/.-";
-    operation.tesseract.image = [image g8_blackAndWhite];
+    operation.tesseract.image = [[image g8_grayScale] g8_blackAndWhite];
     operation.tesseract.delegate = self;
 //    operation.tesseract.maximumRecognitionTime = 2.0;
     
@@ -101,8 +101,9 @@
 - (void)searchForInformationInText:(NSString *)text {
     
     NSError *error = NULL;
-    NSString *cnpjRegexString = @"CNPJ[\\:|2 ]*[0-9]{2}\\.[0-9]{3}\\.[0-9]{3}/[0-9]{4}-[0-9]{2}";
+    NSString *cnpjRegexString = @"CNPJ[\\:|2]*(\\s)*[0-9]{2}(\\.)*[0-9]{3}(\\.)*[0-9]{3}(/)*[0-9]{4}(-)*[0-9]{2}\\s";
     NSString *cooRegexString = @"(coo\\:|000\\:|0002|coo2)+[\\s]*[0-9]+\\s";
+    //NSString *priceRegexString = @"(coo\\:|000\\:|0002|coo2)+[\\s]*[0-9]+\\s"; //Tenho que fazer ainda
     
     NSRegularExpression *cnpjRegex = [NSRegularExpression regularExpressionWithPattern:cnpjRegexString
                                                                            options:NSRegularExpressionCaseInsensitive
@@ -123,11 +124,12 @@
         //O CNPJ foi encontrado
         NSTextCheckingResult *result = [cnpj objectAtIndex:0];
         NSRange matchRange = [result rangeAtIndex:0];
-        NSString *stringInRange = [[[[[[text substringWithRange:matchRange]
+        NSString *stringInRange = [[[[[[[text substringWithRange:matchRange]
                                    stringByReplacingOccurrencesOfString:@"CNPJ" withString:@""]
                                    stringByReplacingOccurrencesOfString:@":" withString:@""]
                                    stringByReplacingOccurrencesOfString:@"." withString:@""]
                                    stringByReplacingOccurrencesOfString:@"/" withString:@""]
+                                    stringByReplacingOccurrencesOfString:@"-" withString:@""]
                                    stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         NSLog(@"CNPJ - %@", stringInRange);
