@@ -14,8 +14,6 @@
 #import "UIColor+HexRepresentation.h"
 #import "MMCropView.h"
 
-
-
 @interface CropViewController (){
     UIScrollView *scrollView;
    
@@ -145,9 +143,6 @@
 -(void)setCropUI{
     //Done
     self.dismissBut.tintColor=[UIColor whiteColor];
-//    self.dismissBut.backgroundColor=[UIColor colorWithHexString:backgroundHex];
-//    self.dismissBut.layer.cornerRadius = self.dismissBut.frame.size.width / 2;
-//    self.dismissBut.clipsToBounds=YES;
     
     [self.dismissBut setImage:[UIImage renderImage:@"Cancel"] forState:UIControlStateNormal];
     [self.leftRotateBut setImage:[UIImage renderImage:@"Left"] forState:UIControlStateNormal];
@@ -439,81 +434,63 @@ cv::Mat debugSquares( std::vector<std::vector<cv::Point> > squares, cv::Mat imag
     
     if([_cropRect frameEdited]){
         
-    //Thanks To stackOverflow
-    CGFloat scaleFactor =  [_sourceImageView contentScale];
-    CGPoint ptBottomLeft = [_cropRect coordinatesForPoint:1 withScaleFactor:scaleFactor];
-    CGPoint ptBottomRight = [_cropRect coordinatesForPoint:2 withScaleFactor:scaleFactor];
-    CGPoint ptTopRight = [_cropRect coordinatesForPoint:3 withScaleFactor:scaleFactor];
-    CGPoint ptTopLeft = [_cropRect coordinatesForPoint:4 withScaleFactor:scaleFactor];
+        CGFloat scaleFactor =  [_sourceImageView contentScale];
+        CGPoint ptBottomLeft = [_cropRect coordinatesForPoint:1 withScaleFactor:scaleFactor];
+        CGPoint ptBottomRight = [_cropRect coordinatesForPoint:2 withScaleFactor:scaleFactor];
+        CGPoint ptTopRight = [_cropRect coordinatesForPoint:3 withScaleFactor:scaleFactor];
+        CGPoint ptTopLeft = [_cropRect coordinatesForPoint:4 withScaleFactor:scaleFactor];
         
         
-    
-    CGFloat w1 = sqrt( pow(ptBottomRight.x - ptBottomLeft.x , 2) + pow(ptBottomRight.x - ptBottomLeft.x, 2));
-    CGFloat w2 = sqrt( pow(ptTopRight.x - ptTopLeft.x , 2) + pow(ptTopRight.x - ptTopLeft.x, 2));
-    
-    CGFloat h1 = sqrt( pow(ptTopRight.y - ptBottomRight.y , 2) + pow(ptTopRight.y - ptBottomRight.y, 2));
-    CGFloat h2 = sqrt( pow(ptTopLeft.y - ptBottomLeft.y , 2) + pow(ptTopLeft.y - ptBottomLeft.y, 2));
-    
-    CGFloat maxWidth = (w1 < w2) ? w1 : w2;
-    CGFloat maxHeight = (h1 < h2) ? h1 : h2;
         
-
-    
-    cv::Point2f src[4], dst[4];
-    src[0].x = ptTopLeft.x;
-    src[0].y = ptTopLeft.y;
-    src[1].x = ptTopRight.x;
-    src[1].y = ptTopRight.y;
-    src[2].x = ptBottomRight.x;
-    src[2].y = ptBottomRight.y;
-    src[3].x = ptBottomLeft.x;
-    src[3].y = ptBottomLeft.y;
-    
-    dst[0].x = 0;
-    dst[0].y = 0;
-    dst[1].x = maxWidth - 1;
-    dst[1].y = 0;
-    dst[2].x = maxWidth - 1;
-    dst[2].y = maxHeight - 1;
-    dst[3].x = 0;
-    dst[3].y = maxHeight - 1;
-    
-    cv::Mat undistorted = cv::Mat( cvSize(maxWidth,maxHeight), CV_8UC4);
-    cv::Mat original = [MMOpenCVHelper cvMatFromUIImage:_adjustedImage];
+        CGFloat w1 = sqrt( pow(ptBottomRight.x - ptBottomLeft.x , 2) + pow(ptBottomRight.x - ptBottomLeft.x, 2));
+        CGFloat w2 = sqrt( pow(ptTopRight.x - ptTopLeft.x , 2) + pow(ptTopRight.x - ptTopLeft.x, 2));
         
-    NSLog(@"%f %f %f %f",ptBottomLeft.x,ptBottomRight.x,ptTopRight.x,ptTopLeft.x);
-    cv::warpPerspective(original, undistorted, cv::getPerspectiveTransform(src, dst), cvSize(maxWidth, maxHeight));
-
-    [UIView transitionWithView:_sourceImageView duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-       
-       
+        CGFloat h1 = sqrt( pow(ptTopRight.y - ptBottomRight.y , 2) + pow(ptTopRight.y - ptBottomRight.y, 2));
+        CGFloat h2 = sqrt( pow(ptTopLeft.y - ptBottomLeft.y , 2) + pow(ptTopLeft.y - ptBottomLeft.y, 2));
+        
+        CGFloat maxWidth = (w1 < w2) ? w1 : w2;
+        CGFloat maxHeight = (h1 < h2) ? h1 : h2;
+        
+        
+        
+        cv::Point2f src[4], dst[4];
+        src[0].x = ptTopLeft.x;
+        src[0].y = ptTopLeft.y;
+        src[1].x = ptTopRight.x;
+        src[1].y = ptTopRight.y;
+        src[2].x = ptBottomRight.x;
+        src[2].y = ptBottomRight.y;
+        src[3].x = ptBottomLeft.x;
+        src[3].y = ptBottomLeft.y;
+        
+        dst[0].x = 0;
+        dst[0].y = 0;
+        dst[1].x = maxWidth - 1;
+        dst[1].y = 0;
+        dst[2].x = maxWidth - 1;
+        dst[2].y = maxHeight - 1;
+        dst[3].x = 0;
+        dst[3].y = maxHeight - 1;
+        
+        cv::Mat undistorted = cv::Mat( cvSize(maxWidth,maxHeight), CV_8UC4);
+        cv::Mat original = [MMOpenCVHelper cvMatFromUIImage:_adjustedImage];
+        
+        cv::warpPerspective(original, undistorted, cv::getPerspectiveTransform(src, dst), cvSize(maxWidth, maxHeight));
         
         _sourceImageView.image=[MMOpenCVHelper UIImageFromCVMat:undistorted];
-         _cropImage=_sourceImageView.image;
+        _cropImage=_sourceImageView.image;
         
-//         _sourceImageView.image = [MMOpenCVHelper UIImageFromCVMat:grayImage];//For gray image
+        original.release();
+        undistorted.release();
         
-    } completion:^(BOOL finished) {
-        _cropRect.hidden=YES;
-        [UIView animateWithDuration:0.5 animations:^{
-            scrollView.frame=CGRectMake(0, 0, self.view.bounds.size.width, 64);
-            
-        }];
-
-    }];
+        [self dismissAction:nil];
         
-    original.release();
-    undistorted.release();
-        
-       
-        
-    }
-    else{
+    }else{
         UIAlertView  *alertView = [[UIAlertView alloc] initWithTitle:@"MMCamScanner" message:@"Invalid Rect" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
 
     }
-   
+    
 }
 
 

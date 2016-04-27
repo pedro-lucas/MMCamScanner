@@ -15,6 +15,8 @@
 #import <TesseractOCR/TesseractOCR.h>
 #import "UploadManager.h"
 #import <CoreTelephony/CoreTelephonyDefines.h>
+#import <GPUImage/GPUImage.h>
+
 @interface ViewController ()<MMCameraDelegate,MMCropDelegate,G8TesseractDelegate>
 {
     RippleAnimation *ripple;
@@ -77,30 +79,76 @@
     [self.pickerBut setImage:[UIImage renderImage:@"Gallery"] forState:UIControlStateNormal];
 }
 
-/*OCR Method Implementation*/
--(void)OCR:(UIImage *)image{
-    // Create RecognitionOperation
-    G8RecognitionOperation *operation = [[G8RecognitionOperation alloc] initWithLanguage:@"eng+pt"];
+-(void)OCR:(UIImage *)image {
     
-    // Configure inner G8Tesseract object as described before
-    operation.tesseract.language = @"eng";
-    operation.tesseract.charWhitelist = @"01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    G8RecognitionOperation *operation = [[G8RecognitionOperation alloc] initWithLanguage:@"por"];
+    
+    operation.tesseract.charWhitelist = @"01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,$:/.-";
     operation.tesseract.image = [image g8_blackAndWhite];
-    operation.tesseract.delegate=self;
-    // Setup the recognitionCompleteBlock to receive the Tesseract object
-    // after text recognition. It will hold the recognized text.
-    operation.recognitionCompleteBlock = ^(G8Tesseract *recognizedTesseract) {
-        // Retrieve the recognized text upon completion
-        NSLog(@" OCR TEXT%@", [recognizedTesseract recognizedText]);
+    operation.tesseract.delegate = self;
+//    operation.tesseract.maximumRecognitionTime = 2.0;
+    
+    operation.recognitionCompleteBlock = ^(G8Tesseract *tesseract) {
+        NSLog(@"TEXTO: %@", [tesseract recognizedText]);
+        [self searchForInformationInText:[tesseract recognizedText]];
     };
     
-    // Add operation to queue
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperation:operation];
 
 }
 
+- (void)searchForInformationInText:(NSString *)text {
+    
+    NSError *error = NULL;
+    NSString *cnpjRegexString = @"CNPJ[\\:|2 ]*[0-9]{2}\\.[0-9]{3}\\.[0-9]{3}/[0-9]{4}-[0-9]{2}";
+    NSString *cooRegexString = @"(coo\\:|000\\:|0002|coo2)+[\\s]*[0-9]+\\s";
+    
+    NSRegularExpression *cnpjRegex = [NSRegularExpression regularExpressionWithPattern:cnpjRegexString
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:nil];
+    
+    NSRegularExpression *cooRegex = [NSRegularExpression regularExpressionWithPattern:cooRegexString
+                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                 error:&error];
+    if(error) {
+        NSLog(@"Invalid regex: %@", error);
+        return;
+    }
+    
+    NSArray *cnpj = [cnpjRegex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
+    NSArray *coo = [cooRegex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
+    
+    if(cnpj.count) {
+        //O CNPJ foi encontrado
+        NSTextCheckingResult *result = [cnpj objectAtIndex:0];
+        NSRange matchRange = [result rangeAtIndex:0];
+        NSString *stringInRange = [[[[[[text substringWithRange:matchRange]
+                                   stringByReplacingOccurrencesOfString:@"CNPJ" withString:@""]
+                                   stringByReplacingOccurrencesOfString:@":" withString:@""]
+                                   stringByReplacingOccurrencesOfString:@"." withString:@""]
+                                   stringByReplacingOccurrencesOfString:@"/" withString:@""]
+                                   stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        
+        NSLog(@"CNPJ - %@", stringInRange);
+    }
+    
+    if(coo.count) {
+        //O COO foi encontrado
+        NSTextCheckingResult *result = [coo objectAtIndex:0];
+        NSRange matchRange = [result rangeAtIndex:0];
+        NSString *stringInRange = [[[text substringWithRange:matchRange]
+                                    substringFromIndex:4]
+                                   stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        NSLog(@"COO - %@", stringInRange);
+    }
+    
+    
+    //NSLog(@"matches: %@", matches);
+}
+
 #pragma mark OCR delegate
+
 - (void)progressImageRecognitionForTesseract:(G8Tesseract *)tesseract {
 //    NSLog(@"progress: %lu", (unsigned long)tesseract.progress);
 }
@@ -153,14 +201,12 @@
     ripple=nil;
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-     [_invokeCamera dismissViewControllerAnimated:YES completion:nil];
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    [_invokeCamera dismissViewControllerAnimated:YES completion:nil];
     [_invokeCamera removeFromParentViewController];
     ripple=nil;
-    
-    [self OCR:[info objectForKey:UIImagePickerControllerOriginalImage]];
-    
+  
     CropViewController *crop=[self.storyboard instantiateViewControllerWithIdentifier:@"crop"];
     crop.cropdelegate=self;
     ripple=[[RippleAnimation alloc] init];
@@ -168,8 +214,6 @@
     ripple.touchPoint=self.cameraBut.frame;
 
     crop.adjustedImage=[info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    
     
     [self presentViewController:crop animated:YES completion:nil];
     
@@ -202,16 +246,12 @@
 
 #pragma mark crop delegate
 -(void)didFinishCropping:(UIImage *)finalCropImage from:(CropViewController *)cropObj{
-    
 
     [cropObj closeWithCompletion:^{
         ripple=nil;
+        [self OCR:finalCropImage];
     }];
-//    [self uploadData:finalCropImage];
-    NSLog(@"Size of Image %lu",(unsigned long)UIImageJPEGRepresentation(finalCropImage, 0.5).length);
-//    NSLog(@"%@ Image",finalCropImage);
-    /*OCR Call*/
-//     [self OCR:finalCropImage];
+    
 }
 
 

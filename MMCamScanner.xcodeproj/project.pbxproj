@@ -26,17 +26,13 @@
 		550931AA1B26F3D800E243F8 /* MTGeometry.c in Sources */ = {isa = PBXBuildFile; fileRef = 550931A81B26F3D800E243F8 /* MTGeometry.c */; };
 		550931AD1B2714EE00E243F8 /* MMCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550931AC1B2714EE00E243F8 /* MMCropView.m */; };
 		554243B51B666D49000FEB8D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554243B41B666D49000FEB8D /* MobileCoreServices.framework */; };
-		554456641B32F00200A88657 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 554456631B32F00200A88657 /* sample.jpg */; };
 		554649831B2FD5BF003B2AC4 /* RippleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 554649821B2FD5BF003B2AC4 /* RippleAnimation.m */; };
-		554649881B3055C8003B2AC4 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 554649871B3055C8003B2AC4 /* libstdc++.dylib */; };
 		5556DD7C1B3130B200564C82 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 5556DD7B1B3130B200564C82 /* tessdata */; };
 		5556DD7E1B314FEA00564C82 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5556DD7D1B314FEA00564C82 /* CoreImage.framework */; };
-		556A929A1B70C19C00187063 /* testdata_fin in Resources */ = {isa = PBXBuildFile; fileRef = 556A92991B70C19C00187063 /* testdata_fin */; };
 		556A929F1B70D16C00187063 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 556A929C1B70D16C00187063 /* ProgressHUD.bundle */; };
 		556A92A01B70D16C00187063 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 556A929E1B70D16C00187063 /* ProgressHUD.m */; };
 		5570AFB91B4122F900978131 /* UploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5570AFB81B4122F900978131 /* UploadManager.m */; };
 		55C807CA1B4AA5A700C096BF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C807C91B4AA5A700C096BF /* CoreTelephony.framework */; };
-		55FDF9971B2A9061001400E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDF9961B2A9061001400E1 /* ViewController.swift */; };
 		55FDF9991B2AAEA7001400E1 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FDF9981B2AAEA7001400E1 /* AssetsLibrary.framework */; };
 		55FDF99C1B2B0851001400E1 /* UIColor+HexRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FDF99B1B2B0851001400E1 /* UIColor+HexRepresentation.m */; };
 /* End PBXBuildFile section */
@@ -84,21 +80,17 @@
 		550931AB1B2714EE00E243F8 /* MMCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCropView.h; sourceTree = "<group>"; };
 		550931AC1B2714EE00E243F8 /* MMCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCropView.m; sourceTree = "<group>"; };
 		554243B41B666D49000FEB8D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		554456631B32F00200A88657 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		554649811B2FD5BF003B2AC4 /* RippleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleAnimation.h; sourceTree = "<group>"; };
 		554649821B2FD5BF003B2AC4 /* RippleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleAnimation.m; sourceTree = "<group>"; };
-		554649871B3055C8003B2AC4 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		5556DD7B1B3130B200564C82 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		5556DD7D1B314FEA00564C82 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		556A92991B70C19C00187063 /* testdata_fin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testdata_fin; sourceTree = "<group>"; };
 		556A929C1B70D16C00187063 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		556A929D1B70D16C00187063 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		556A929E1B70D16C00187063 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		5570AFB71B4122F900978131 /* UploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadManager.h; sourceTree = "<group>"; };
 		5570AFB81B4122F900978131 /* UploadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadManager.m; sourceTree = "<group>"; };
 		55C807C91B4AA5A700C096BF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		55FDF9951B2A9060001400E1 /* MMCamScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMCamScanner-Bridging-Header.h"; sourceTree = "<group>"; };
-		55FDF9961B2A9061001400E1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55FDF9951B2A9060001400E1 /* MMCamScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMCamScanner-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		55FDF9981B2AAEA7001400E1 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		55FDF99A1B2B0851001400E1 /* UIColor+HexRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRepresentation.h"; sourceTree = "<group>"; };
 		55FDF99B1B2B0851001400E1 /* UIColor+HexRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRepresentation.m"; sourceTree = "<group>"; };
@@ -115,7 +107,6 @@
 				554243B51B666D49000FEB8D /* MobileCoreServices.framework in Frameworks */,
 				55C807CA1B4AA5A700C096BF /* CoreTelephony.framework in Frameworks */,
 				5556DD7E1B314FEA00564C82 /* CoreImage.framework in Frameworks */,
-				554649881B3055C8003B2AC4 /* libstdc++.dylib in Frameworks */,
 				55FDF9991B2AAEA7001400E1 /* AssetsLibrary.framework in Frameworks */,
 				550931A11B26EE0400E243F8 /* CoreGraphics.framework in Frameworks */,
 				550931881B26C4F300E243F8 /* AVFoundation.framework in Frameworks */,
@@ -136,16 +127,10 @@
 		550931551B26C2A500E243F8 = {
 			isa = PBXGroup;
 			children = (
-				554243B41B666D49000FEB8D /* MobileCoreServices.framework */,
-				55C807C91B4AA5A700C096BF /* CoreTelephony.framework */,
-				554649871B3055C8003B2AC4 /* libstdc++.dylib */,
-				554456631B32F00200A88657 /* sample.jpg */,
-				55FDF9961B2A9061001400E1 /* ViewController.swift */,
 				550931601B26C2A500E243F8 /* MMCamScanner */,
 				5509317A1B26C2A600E243F8 /* MMCamScannerTests */,
 				5509315F1B26C2A500E243F8 /* Products */,
 				550931891B26C50900E243F8 /* FrameWorks */,
-				55FDF9951B2A9060001400E1 /* MMCamScanner-Bridging-Header.h */,
 				C19998FDA70E08DCE7646CB2 /* Pods */,
 				7624F99B5AB561949CB28402 /* Frameworks */,
 			);
@@ -163,8 +148,7 @@
 		550931601B26C2A500E243F8 /* MMCamScanner */ = {
 			isa = PBXGroup;
 			children = (
-				556A929B1B70D16C00187063 /* ProgressHUD */,
-				554649841B2FD5C5003B2AC4 /* Animation */,
+				55FDF9951B2A9060001400E1 /* MMCamScanner-Bridging-Header.h */,
 				5509318D1B26D12400E243F8 /* CameraFocusSquare.h */,
 				5509318E1B26D12400E243F8 /* CameraFocusSquare.m */,
 				550931651B26C2A500E243F8 /* AppDelegate.h */,
@@ -173,16 +157,15 @@
 				550931691B26C2A500E243F8 /* ViewController.m */,
 				5509318A1B26C56A00E243F8 /* MMCameraPickerController.h */,
 				5509318B1B26C56A00E243F8 /* MMCameraPickerController.m */,
-				5509316E1B26C2A500E243F8 /* Images.xcassets */,
-				550931701B26C2A500E243F8 /* LaunchScreen.xib */,
-				5509316B1B26C2A500E243F8 /* Main.storyboard */,
-				5509319C1B26E46000E243F8 /* UIImage Categories */,
-				550931951B26E43E00E243F8 /* OpenCV */,
-				550931611B26C2A500E243F8 /* Supporting Files */,
 				5509319D1B26EA8500E243F8 /* CropViewController.h */,
 				5509319E1B26EA8500E243F8 /* CropViewController.mm */,
 				5570AFB71B4122F900978131 /* UploadManager.h */,
 				5570AFB81B4122F900978131 /* UploadManager.m */,
+				556A929B1B70D16C00187063 /* ProgressHUD */,
+				554649841B2FD5C5003B2AC4 /* Animation */,
+				5509319C1B26E46000E243F8 /* UIImage Categories */,
+				550931951B26E43E00E243F8 /* OpenCV */,
+				550931611B26C2A500E243F8 /* Supporting Files */,
 			);
 			path = MMCamScanner;
 			sourceTree = "<group>";
@@ -190,8 +173,10 @@
 		550931611B26C2A500E243F8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				556A92991B70C19C00187063 /* testdata_fin */,
 				5556DD7B1B3130B200564C82 /* tessdata */,
+				5509316E1B26C2A500E243F8 /* Images.xcassets */,
+				550931701B26C2A500E243F8 /* LaunchScreen.xib */,
+				5509316B1B26C2A500E243F8 /* Main.storyboard */,
 				550931621B26C2A500E243F8 /* Info.plist */,
 				550931631B26C2A500E243F8 /* main.m */,
 			);
@@ -218,6 +203,8 @@
 		550931891B26C50900E243F8 /* FrameWorks */ = {
 			isa = PBXGroup;
 			children = (
+				554243B41B666D49000FEB8D /* MobileCoreServices.framework */,
+				55C807C91B4AA5A700C096BF /* CoreTelephony.framework */,
 				5556DD7D1B314FEA00564C82 /* CoreImage.framework */,
 				55FDF9981B2AAEA7001400E1 /* AssetsLibrary.framework */,
 				550931A01B26EE0400E243F8 /* CoreGraphics.framework */,
@@ -381,9 +368,7 @@
 				5509316D1B26C2A500E243F8 /* Main.storyboard in Resources */,
 				550931721B26C2A500E243F8 /* LaunchScreen.xib in Resources */,
 				556A929F1B70D16C00187063 /* ProgressHUD.bundle in Resources */,
-				554456641B32F00200A88657 /* sample.jpg in Resources */,
 				5556DD7C1B3130B200564C82 /* tessdata in Resources */,
-				556A929A1B70C19C00187063 /* testdata_fin in Resources */,
 				5509316F1B26C2A500E243F8 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,7 +438,6 @@
 				5509316A1B26C2A500E243F8 /* ViewController.m in Sources */,
 				550931AA1B26F3D800E243F8 /* MTGeometry.c in Sources */,
 				550931AD1B2714EE00E243F8 /* MMCropView.m in Sources */,
-				55FDF9971B2A9061001400E1 /* ViewController.swift in Sources */,
 				5509319F1B26EA8500E243F8 /* CropViewController.mm in Sources */,
 				556A92A01B70D16C00187063 /* ProgressHUD.m in Sources */,
 				5509319A1B26E45B00E243F8 /* UIImage+fixOrientation.m in Sources */,
