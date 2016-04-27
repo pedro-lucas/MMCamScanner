@@ -83,7 +83,7 @@
     
     G8RecognitionOperation *operation = [[G8RecognitionOperation alloc] initWithLanguage:@"por"];
     
-    operation.tesseract.charWhitelist = @"01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,$:/.-";
+    operation.tesseract.charWhitelist = @"01234567890CNPJORFcnpjorf,$:/.-";
     operation.tesseract.image = [[image g8_grayScale] g8_blackAndWhite];
     operation.tesseract.delegate = self;
 //    operation.tesseract.maximumRecognitionTime = 2.0;
