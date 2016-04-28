@@ -81,17 +81,24 @@
 
 -(void)OCR:(UIImage *)image {
     
-    G8RecognitionOperation *operation = [[G8RecognitionOperation alloc] initWithLanguage:@"por"];
+    G8RecognitionOperation *operation = [[G8RecognitionOperation alloc] initWithLanguage:@"por+eng"];
+    operation.delegate = self;
     
-    operation.tesseract.charWhitelist = @"01234567890CNPJORFcnpjorf,$:/.-";
-    operation.tesseract.image = [[image g8_grayScale] g8_blackAndWhite];
-    operation.tesseract.delegate = self;
-//    operation.tesseract.maximumRecognitionTime = 2.0;
+    GPUImageAdaptiveThresholdFilter *stillImageFilter = [[GPUImageAdaptiveThresholdFilter alloc] init];
+    stillImageFilter.blurRadiusInPixels = 4.0; // adjust this to tweak the blur radius of the filter, defaults to 4.0
+    
+    // Retrieve the filtered image from the filter
+    UIImage *filteredImage = [stillImageFilter imageByFilteringImage:[image g8_blackAndWhite]];
+    
+    operation.tesseract.charWhitelist = @"CNPJORFcnpjorf01234567890,$:/.-";
+    operation.tesseract.image = filteredImage;
     
     operation.recognitionCompleteBlock = ^(G8Tesseract *tesseract) {
         NSLog(@"TEXTO: %@", [tesseract recognizedText]);
         [self searchForInformationInText:[tesseract recognizedText]];
     };
+    
+    operation.tesseract.delegate = self;
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperation:operation];
@@ -101,7 +108,7 @@
 - (void)searchForInformationInText:(NSString *)text {
     
     NSError *error = NULL;
-    NSString *cnpjRegexString = @"CNPJ[\\:|2]*(\\s)*[0-9]{2}(\\.)*[0-9]{3}(\\.)*[0-9]{3}(/)*[0-9]{4}(-)*[0-9]{2}\\s";
+    NSString *cnpjRegexString = @"[0-9]{2}\\.[0-9]{3}\\.[0-9]{3}/[0-9]{4}-*[0-9]{2}";
     NSString *cooRegexString = @"(coo\\:|000\\:|0002|coo2)+[\\s]*[0-9]+\\s";
     //NSString *priceRegexString = @"(coo\\:|000\\:|0002|coo2)+[\\s]*[0-9]+\\s"; //Tenho que fazer ainda
     

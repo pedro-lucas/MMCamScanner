@@ -483,7 +483,8 @@ cv::Mat debugSquares( std::vector<std::vector<cv::Point> > squares, cv::Mat imag
         original.release();
         undistorted.release();
         
-        [self dismissAction:nil];
+//        [self dismissAction:nil];
+        scrollView.frame=CGRectMake(0, 0, self.view.bounds.size.width, 64);
         
     }else{
         UIAlertView  *alertView = [[UIAlertView alloc] initWithTitle:@"MMCamScanner" message:@"Invalid Rect" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
