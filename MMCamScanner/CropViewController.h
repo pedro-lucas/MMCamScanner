@@ -11,8 +11,8 @@
 #import "UIImage+fixOrientation.h"
 #import "UIImageView+ContentFrame.h"
 
-#import "ProgressHUD.h"
 @class CropViewController;
+
 @protocol MMCropDelegate <NSObject>
 
 -(void)didFinishCropping:(UIImage *)finalCropImage from:(CropViewController *)cropObj;

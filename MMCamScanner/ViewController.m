@@ -16,13 +16,18 @@
 #import "UploadManager.h"
 #import <CoreTelephony/CoreTelephonyDefines.h>
 #import <GPUImage/GPUImage.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import "Validador_CPF_CNPJ.h"
 
-@interface ViewController ()<MMCameraDelegate,MMCropDelegate,G8TesseractDelegate>
-{
+@interface ViewController ()<MMCameraDelegate,MMCropDelegate,G8TesseractDelegate> {
     RippleAnimation *ripple;
-    
 }
 
+@property (weak, nonatomic) IBOutlet UITextField *txtCNPJ;
+@property (weak, nonatomic) IBOutlet UITextField *txtCPF;
+@property (weak, nonatomic) IBOutlet UITextField *txtCOO;
+@property (weak, nonatomic) IBOutlet UITextField *txtRS;
+@property (strong, nonnull) MBProgressHUD *hud;
 
 @end
 
@@ -30,19 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     [self setUI];
-      self.view.backgroundColor=[UIColor colorWithHexString:@"f44336"];
-//    [self uploadReceiptImage:@"Camera.png"];
-//    [UploadManager shared];
-    NSArray *imgArr=@[@"sample.jpg",@"Camera.png",@"Crop.png",@"Done.png",@"Gallery.png"];
-    for (int i=0; i<imgArr.count; i++) {
-//        [self uploadReceiptImage:[imgArr objectAtIndex:i]];
-        NSLog(@"%d URL Hit",i);
-    }
-    
-//    NSLog(@"%lu",(unsigned long)UIImagePNGRepresentation([self loadImage]).length);
-   
 }
 
 #pragma mark Document Directory
@@ -65,38 +58,31 @@
 
 
 -(void)setUI{
-    self.cameraBut.tintColor=[UIColor whiteColor];
-    self.cameraBut.backgroundColor=[UIColor colorWithHexString:backgroundHex];
     self.cameraBut.layer.cornerRadius = self.cameraBut.frame.size.width / 2;
-    self.cameraBut.clipsToBounds=YES;
-    [self.cameraBut setImage:[UIImage renderImage:@"Camera"] forState:UIControlStateNormal];
-
-    
-    self.pickerBut.tintColor=[UIColor whiteColor];
-    self.pickerBut.backgroundColor=[UIColor colorWithHexString:backgroundHex];
     self.pickerBut.layer.cornerRadius = self.pickerBut.frame.size.width / 2;
-    self.pickerBut.clipsToBounds=YES;
-    [self.pickerBut setImage:[UIImage renderImage:@"Gallery"] forState:UIControlStateNormal];
 }
 
 -(void)OCR:(UIImage *)image {
     
     G8RecognitionOperation *operation = [[G8RecognitionOperation alloc] initWithLanguage:@"por+eng"];
-    operation.delegate = self;
     
-    GPUImageAdaptiveThresholdFilter *stillImageFilter = [[GPUImageAdaptiveThresholdFilter alloc] init];
-    stillImageFilter.blurRadiusInPixels = 4.0; // adjust this to tweak the blur radius of the filter, defaults to 4.0
+//    GPUImageAdaptiveThresholdFilter *stillImageFilter = [[GPUImageAdaptiveThresholdFilter alloc] init];
+//    stillImageFilter.blurRadiusInPixels = 4.0; // adjust this to tweak the blur radius of the filter, defaults to 4.0
+//    
+//    // Retrieve the filtered image from the filter
+//    UIImage *filteredImage = [stillImageFilter imageByFilteringImage:[image g8_blackAndWhite]];
     
-    // Retrieve the filtered image from the filter
-    UIImage *filteredImage = [stillImageFilter imageByFilteringImage:[image g8_blackAndWhite]];
-    
-    operation.tesseract.charWhitelist = @"CNPJORFcnpjorf01234567890,$:/.-";
-    operation.tesseract.image = filteredImage;
+    operation.tesseract.charWhitelist = @"TALCNPJORFtalcnpjorf01234567890,$:/.-";
+    operation.tesseract.image = image;
     
     operation.recognitionCompleteBlock = ^(G8Tesseract *tesseract) {
-        NSLog(@"TEXTO: %@", [tesseract recognizedText]);
+        [self.hud hide:YES];
         [self searchForInformationInText:[tesseract recognizedText]];
     };
+    
+//    operation.progressCallbackBlock = ^(G8Tesseract *tesseract) {
+//        self.hud.progress = tesseract.progress;
+//    };
     
     operation.tesseract.delegate = self;
     
@@ -107,10 +93,15 @@
 
 - (void)searchForInformationInText:(NSString *)text {
     
+    text = [text lowercaseString];
+    
     NSError *error = NULL;
     NSString *cnpjRegexString = @"[0-9]{2}\\.[0-9]{3}\\.[0-9]{3}/[0-9]{4}-*[0-9]{2}";
-    NSString *cooRegexString = @"(coo\\:|000\\:|0002|coo2)+[\\s]*[0-9]+\\s";
-    //NSString *priceRegexString = @"(coo\\:|000\\:|0002|coo2)+[\\s]*[0-9]+\\s"; //Tenho que fazer ainda
+    NSString *cooRegexString = @"[coo\\:|000\\:|0002|coo2|con\\s]{4}\\s*[0-9]{6}\\s";
+    NSString *cpfRegexString = @"[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}-*[0-9]{2}";
+    NSString *precoRegexString = @"\\s(total|totnl|t0tal|t0tnl){1}\\s*[r$|rs]{2}\\s*[a-z0-9\\.\\,]* [0-9\\,\\.]+\\s"; //Tenho que fazer ainda
+    
+    NSLog(@"TEXTO: %@", text);
     
     NSRegularExpression *cnpjRegex = [NSRegularExpression regularExpressionWithPattern:cnpjRegexString
                                                                            options:NSRegularExpressionCaseInsensitive
@@ -118,7 +109,16 @@
     
     NSRegularExpression *cooRegex = [NSRegularExpression regularExpressionWithPattern:cooRegexString
                                                                                options:NSRegularExpressionCaseInsensitive
-                                                                                 error:&error];
+                                                                                 error:nil];
+    
+    NSRegularExpression *cpfRegex = [NSRegularExpression regularExpressionWithPattern:cpfRegexString
+                                                                              options:NSRegularExpressionCaseInsensitive
+                                                                                error:nil];
+    
+    NSRegularExpression *precoRegex = [NSRegularExpression regularExpressionWithPattern:precoRegexString
+                                                                              options:NSRegularExpressionCaseInsensitive
+                                                                                error:&error];
+    
     if(error) {
         NSLog(@"Invalid regex: %@", error);
         return;
@@ -126,30 +126,68 @@
     
     NSArray *cnpj = [cnpjRegex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
     NSArray *coo = [cooRegex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
+    NSArray *cpf = [cpfRegex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
+    NSArray *preco = [precoRegex matchesInString:text options:0 range:NSMakeRange(0, [text length])];
     
     if(cnpj.count) {
-        //O CNPJ foi encontrado
         NSTextCheckingResult *result = [cnpj objectAtIndex:0];
         NSRange matchRange = [result rangeAtIndex:0];
-        NSString *stringInRange = [[[[[[[text substringWithRange:matchRange]
-                                   stringByReplacingOccurrencesOfString:@"CNPJ" withString:@""]
-                                   stringByReplacingOccurrencesOfString:@":" withString:@""]
+        NSString *stringInRange = [[[[[text substringWithRange:matchRange]
                                    stringByReplacingOccurrencesOfString:@"." withString:@""]
                                    stringByReplacingOccurrencesOfString:@"/" withString:@""]
                                     stringByReplacingOccurrencesOfString:@"-" withString:@""]
                                    stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if(![[Validador_CPF_CNPJ new] validarCNPJ:stringInRange]) {
+            self.txtCNPJ.text = stringInRange;
+        }else{
+            NSLog(@"CNPJ: %@", stringInRange);
+            self.txtCNPJ.text = @"O CNPJ encontrado não passou na validação";
+        }
         
-        NSLog(@"CNPJ - %@", stringInRange);
+    }else{
+        self.txtCNPJ.text = @"CNPJ não encontrado";
     }
     
     if(coo.count) {
-        //O COO foi encontrado
         NSTextCheckingResult *result = [coo objectAtIndex:0];
         NSRange matchRange = [result rangeAtIndex:0];
         NSString *stringInRange = [[[text substringWithRange:matchRange]
                                     substringFromIndex:4]
                                    stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        NSLog(@"COO - %@", stringInRange);
+        self.txtCOO.text = stringInRange;
+    }else{
+        self.txtCOO.text = @"COO não encontrado";
+    }
+    
+    if(cpf.count) {
+        NSTextCheckingResult *result = [cpf objectAtIndex:0];
+        NSRange matchRange = [result rangeAtIndex:0];
+        NSString *stringInRange = [[[[text substringWithRange:matchRange]
+                                      stringByReplacingOccurrencesOfString:@"." withString:@""]
+                                    stringByReplacingOccurrencesOfString:@"-" withString:@""]
+                                   stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        
+        if(![[Validador_CPF_CNPJ new] validarCPF:stringInRange]) {
+            self.txtCPF.text = stringInRange;
+        }else{
+            self.txtCPF.text = @"O CPF encontrado não passou na validação";
+        }
+        
+    }else{
+        self.txtCPF.text = @"CPF não encontrado";
+    }
+    
+    
+    if(preco.count) {
+        NSTextCheckingResult *result = [preco objectAtIndex:0];
+        NSRange matchRange = [result rangeAtIndex:0];
+        NSArray *array = [[[text substringWithRange:matchRange]
+                           stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]
+                          componentsSeparatedByString:@" "];
+        NSString *stringInRange = array[array.count-1];
+        self.txtRS.text = stringInRange;
+    }else{
+        self.txtRS.text = @"Preço não encontrado";
     }
     
     
@@ -158,31 +196,22 @@
 
 #pragma mark OCR delegate
 
-- (void)progressImageRecognitionForTesseract:(G8Tesseract *)tesseract {
-//    NSLog(@"progress: %lu", (unsigned long)tesseract.progress);
-}
-
-- (BOOL)shouldCancelImageRecognitionForTesseract:(G8Tesseract *)tesseract {
-    return NO;  // return YES, if you need to interrupt tesseract before it finishes
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
 - (IBAction)cameraAction:(id)sender {
-    MMCameraPickerController *cameraPicker=[self.storyboard instantiateViewControllerWithIdentifier:@"camera"];
+    
+    MMCameraPickerController *cameraPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"camera"];
     ripple=[[RippleAnimation alloc] init];
+    
     cameraPicker.camdelegate=self;
     cameraPicker.transitioningDelegate=ripple;
     ripple.touchPoint=self.cameraBut.frame;
    
     [self presentViewController:cameraPicker animated:YES completion:nil];
     
-    
-
 }
 
 - (IBAction)pickerAction:(id)sender {
@@ -249,7 +278,8 @@
     
     
 }
--(void)authorizationStatus:(BOOL)status{
+
+-(void)authorizationStatus:(BOOL)status {
     
 }
 
@@ -258,7 +288,12 @@
 
     [cropObj closeWithCompletion:^{
         ripple=nil;
-        [self OCR:finalCropImage];
+        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.hud.dimBackground = YES;
+        self.hud.labelText = @"Escaneando...";
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self OCR:finalCropImage];
+        });
     }];
     
 }

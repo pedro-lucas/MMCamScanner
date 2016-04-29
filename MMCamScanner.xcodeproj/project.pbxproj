@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A91396B4A50CEE7A7678EC5 /* libPods-MMCamScanner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D090650A9F77188A4C3C7C /* libPods-MMCamScanner.a */; };
+		31C0C02911FBD18692E2D3B8 /* libPods-MMCamScannerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3FE4C7B2198C83A78929EA /* libPods-MMCamScannerTests.a */; };
 		550931641B26C2A500E243F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 550931631B26C2A500E243F8 /* main.m */; };
 		550931671B26C2A500E243F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 550931661B26C2A500E243F8 /* AppDelegate.m */; };
 		5509316A1B26C2A500E243F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 550931691B26C2A500E243F8 /* ViewController.m */; };
@@ -26,15 +26,15 @@
 		550931AA1B26F3D800E243F8 /* MTGeometry.c in Sources */ = {isa = PBXBuildFile; fileRef = 550931A81B26F3D800E243F8 /* MTGeometry.c */; };
 		550931AD1B2714EE00E243F8 /* MMCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 550931AC1B2714EE00E243F8 /* MMCropView.m */; };
 		554243B51B666D49000FEB8D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554243B41B666D49000FEB8D /* MobileCoreServices.framework */; };
-		554649831B2FD5BF003B2AC4 /* RippleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 554649821B2FD5BF003B2AC4 /* RippleAnimation.m */; };
 		5556DD7C1B3130B200564C82 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 5556DD7B1B3130B200564C82 /* tessdata */; };
 		5556DD7E1B314FEA00564C82 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5556DD7D1B314FEA00564C82 /* CoreImage.framework */; };
-		556A929F1B70D16C00187063 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 556A929C1B70D16C00187063 /* ProgressHUD.bundle */; };
-		556A92A01B70D16C00187063 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 556A929E1B70D16C00187063 /* ProgressHUD.m */; };
 		5570AFB91B4122F900978131 /* UploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5570AFB81B4122F900978131 /* UploadManager.m */; };
 		55C807CA1B4AA5A700C096BF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C807C91B4AA5A700C096BF /* CoreTelephony.framework */; };
 		55FDF9991B2AAEA7001400E1 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FDF9981B2AAEA7001400E1 /* AssetsLibrary.framework */; };
 		55FDF99C1B2B0851001400E1 /* UIColor+HexRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FDF99B1B2B0851001400E1 /* UIColor+HexRepresentation.m */; };
+		E3A8FFFCCBCC43D50E3EB3CD /* libPods-MMCamScanner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73728B4836F88C7B517A2E82 /* libPods-MMCamScanner.a */; };
+		EB13246F1CD2FDB00045DF64 /* RippleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB13246E1CD2FDB00045DF64 /* RippleAnimation.m */; };
+		EB1324731CD30F990045DF64 /* Validador_CPF_CNPJ.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1324721CD30F990045DF64 /* Validador_CPF_CNPJ.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37C0611EAC94EDB63D74466D /* Pods-MMCamScannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMCamScannerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMCamScannerTests/Pods-MMCamScannerTests.release.xcconfig"; sourceTree = "<group>"; };
+		48DEC74EED518EA06927A381 /* Pods-MMCamScannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMCamScannerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MMCamScannerTests/Pods-MMCamScannerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5509315E1B26C2A500E243F8 /* MMCamScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMCamScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		550931621B26C2A500E243F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550931631B26C2A500E243F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,13 +82,8 @@
 		550931AB1B2714EE00E243F8 /* MMCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCropView.h; sourceTree = "<group>"; };
 		550931AC1B2714EE00E243F8 /* MMCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCropView.m; sourceTree = "<group>"; };
 		554243B41B666D49000FEB8D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		554649811B2FD5BF003B2AC4 /* RippleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleAnimation.h; sourceTree = "<group>"; };
-		554649821B2FD5BF003B2AC4 /* RippleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleAnimation.m; sourceTree = "<group>"; };
 		5556DD7B1B3130B200564C82 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		5556DD7D1B314FEA00564C82 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		556A929C1B70D16C00187063 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
-		556A929D1B70D16C00187063 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
-		556A929E1B70D16C00187063 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		5570AFB71B4122F900978131 /* UploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadManager.h; sourceTree = "<group>"; };
 		5570AFB81B4122F900978131 /* UploadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadManager.m; sourceTree = "<group>"; };
 		55C807C91B4AA5A700C096BF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -94,9 +91,14 @@
 		55FDF9981B2AAEA7001400E1 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		55FDF99A1B2B0851001400E1 /* UIColor+HexRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRepresentation.h"; sourceTree = "<group>"; };
 		55FDF99B1B2B0851001400E1 /* UIColor+HexRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRepresentation.m"; sourceTree = "<group>"; };
-		97D090650A9F77188A4C3C7C /* libPods-MMCamScanner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMCamScanner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB1B01FB9460F4F5C92C9818 /* Pods-MMCamScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMCamScanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner.release.xcconfig"; sourceTree = "<group>"; };
-		DDED73F94B41D9C2F4078307 /* Pods-MMCamScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMCamScanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner.debug.xcconfig"; sourceTree = "<group>"; };
+		73728B4836F88C7B517A2E82 /* libPods-MMCamScanner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMCamScanner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2DCF1750A19FEFB648C899F /* Pods-MMCamScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMCamScanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner.debug.xcconfig"; sourceTree = "<group>"; };
+		AE3FE4C7B2198C83A78929EA /* libPods-MMCamScannerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MMCamScannerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6F61594593C4877146FD98B /* Pods-MMCamScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MMCamScanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner.release.xcconfig"; sourceTree = "<group>"; };
+		EB13246D1CD2FDB00045DF64 /* RippleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleAnimation.h; sourceTree = "<group>"; };
+		EB13246E1CD2FDB00045DF64 /* RippleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleAnimation.m; sourceTree = "<group>"; };
+		EB1324711CD30F990045DF64 /* Validador_CPF_CNPJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validador_CPF_CNPJ.h; sourceTree = "<group>"; };
+		EB1324721CD30F990045DF64 /* Validador_CPF_CNPJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validador_CPF_CNPJ.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +112,7 @@
 				55FDF9991B2AAEA7001400E1 /* AssetsLibrary.framework in Frameworks */,
 				550931A11B26EE0400E243F8 /* CoreGraphics.framework in Frameworks */,
 				550931881B26C4F300E243F8 /* AVFoundation.framework in Frameworks */,
-				0A91396B4A50CEE7A7678EC5 /* libPods-MMCamScanner.a in Frameworks */,
+				E3A8FFFCCBCC43D50E3EB3CD /* libPods-MMCamScanner.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31C0C02911FBD18692E2D3B8 /* libPods-MMCamScannerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,8 +134,8 @@
 				5509317A1B26C2A600E243F8 /* MMCamScannerTests */,
 				5509315F1B26C2A500E243F8 /* Products */,
 				550931891B26C50900E243F8 /* FrameWorks */,
-				C19998FDA70E08DCE7646CB2 /* Pods */,
-				7624F99B5AB561949CB28402 /* Frameworks */,
+				95B02526C629285B36310FE8 /* Pods */,
+				A7DE051CCCFCA1912C3CEEF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,10 +164,7 @@
 				5509319E1B26EA8500E243F8 /* CropViewController.mm */,
 				5570AFB71B4122F900978131 /* UploadManager.h */,
 				5570AFB81B4122F900978131 /* UploadManager.m */,
-				556A929B1B70D16C00187063 /* ProgressHUD */,
-				554649841B2FD5C5003B2AC4 /* Animation */,
-				5509319C1B26E46000E243F8 /* UIImage Categories */,
-				550931951B26E43E00E243F8 /* OpenCV */,
+				EB1324701CD30F7B0045DF64 /* Helpers */,
 				550931611B26C2A500E243F8 /* Supporting Files */,
 			);
 			path = MMCamScanner;
@@ -229,6 +229,8 @@
 		5509319C1B26E46000E243F8 /* UIImage Categories */ = {
 			isa = PBXGroup;
 			children = (
+				EB13246D1CD2FDB00045DF64 /* RippleAnimation.h */,
+				EB13246E1CD2FDB00045DF64 /* RippleAnimation.m */,
 				550931961B26E45B00E243F8 /* UIImage+fixOrientation.h */,
 				550931971B26E45B00E243F8 /* UIImage+fixOrientation.m */,
 				550931981B26E45B00E243F8 /* UIImageView+ContentFrame.h */,
@@ -239,41 +241,35 @@
 			name = "UIImage Categories";
 			sourceTree = "<group>";
 		};
-		554649841B2FD5C5003B2AC4 /* Animation */ = {
+		95B02526C629285B36310FE8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				554649811B2FD5BF003B2AC4 /* RippleAnimation.h */,
-				554649821B2FD5BF003B2AC4 /* RippleAnimation.m */,
+				A2DCF1750A19FEFB648C899F /* Pods-MMCamScanner.debug.xcconfig */,
+				D6F61594593C4877146FD98B /* Pods-MMCamScanner.release.xcconfig */,
+				48DEC74EED518EA06927A381 /* Pods-MMCamScannerTests.debug.xcconfig */,
+				37C0611EAC94EDB63D74466D /* Pods-MMCamScannerTests.release.xcconfig */,
 			);
-			name = Animation;
-			path = ..;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		556A929B1B70D16C00187063 /* ProgressHUD */ = {
+		A7DE051CCCFCA1912C3CEEF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				556A929C1B70D16C00187063 /* ProgressHUD.bundle */,
-				556A929D1B70D16C00187063 /* ProgressHUD.h */,
-				556A929E1B70D16C00187063 /* ProgressHUD.m */,
-			);
-			path = ProgressHUD;
-			sourceTree = "<group>";
-		};
-		7624F99B5AB561949CB28402 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				97D090650A9F77188A4C3C7C /* libPods-MMCamScanner.a */,
+				73728B4836F88C7B517A2E82 /* libPods-MMCamScanner.a */,
+				AE3FE4C7B2198C83A78929EA /* libPods-MMCamScannerTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C19998FDA70E08DCE7646CB2 /* Pods */ = {
+		EB1324701CD30F7B0045DF64 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DDED73F94B41D9C2F4078307 /* Pods-MMCamScanner.debug.xcconfig */,
-				BB1B01FB9460F4F5C92C9818 /* Pods-MMCamScanner.release.xcconfig */,
+				EB1324711CD30F990045DF64 /* Validador_CPF_CNPJ.h */,
+				EB1324721CD30F990045DF64 /* Validador_CPF_CNPJ.m */,
+				550931951B26E43E00E243F8 /* OpenCV */,
+				5509319C1B26E46000E243F8 /* UIImage Categories */,
 			);
-			name = Pods;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,12 +279,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 550931811B26C2A600E243F8 /* Build configuration list for PBXNativeTarget "MMCamScanner" */;
 			buildPhases = (
-				9739F0A0CE9132B9340BFEF2 /* Check Pods Manifest.lock */,
+				D6BE0DA33FE596F56CD1098F /* 📦 Check Pods Manifest.lock */,
 				5509315A1B26C2A500E243F8 /* Sources */,
 				5509315B1B26C2A500E243F8 /* Frameworks */,
 				5509315C1B26C2A500E243F8 /* Resources */,
-				1F35DDD5ACECC3824C101D39 /* Embed Pods Frameworks */,
-				A07A51559B57EA32E99B2E98 /* Copy Pods Resources */,
+				BF9AE893FF0D950921B91187 /* 📦 Embed Pods Frameworks */,
+				994A82819B5355B3561E54BA /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -303,9 +299,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 550931841B26C2A600E243F8 /* Build configuration list for PBXNativeTarget "MMCamScannerTests" */;
 			buildPhases = (
+				FF182AF2CAC843D5D9D5672D /* 📦 Check Pods Manifest.lock */,
 				550931731B26C2A600E243F8 /* Sources */,
 				550931741B26C2A600E243F8 /* Frameworks */,
 				550931751B26C2A600E243F8 /* Resources */,
+				88760C5F241A3F0EE02D202C /* 📦 Embed Pods Frameworks */,
+				2E655F335BE095625704D692 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -367,7 +366,6 @@
 			files = (
 				5509316D1B26C2A500E243F8 /* Main.storyboard in Resources */,
 				550931721B26C2A500E243F8 /* LaunchScreen.xib in Resources */,
-				556A929F1B70D16C00187063 /* ProgressHUD.bundle in Resources */,
 				5556DD7C1B3130B200564C82 /* tessdata in Resources */,
 				5509316F1B26C2A500E243F8 /* Images.xcassets in Resources */,
 			);
@@ -383,14 +381,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1F35DDD5ACECC3824C101D39 /* Embed Pods Frameworks */ = {
+		2E655F335BE095625704D692 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MMCamScannerTests/Pods-MMCamScannerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88760C5F241A3F0EE02D202C /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MMCamScannerTests/Pods-MMCamScannerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		994A82819B5355B3561E54BA /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF9AE893FF0D950921B91187 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,14 +441,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9739F0A0CE9132B9340BFEF2 /* Check Pods Manifest.lock */ = {
+		D6BE0DA33FE596F56CD1098F /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,19 +456,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A07A51559B57EA32E99B2E98 /* Copy Pods Resources */ = {
+		FF182AF2CAC843D5D9D5672D /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MMCamScanner/Pods-MMCamScanner-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -437,14 +480,14 @@
 			files = (
 				5509316A1B26C2A500E243F8 /* ViewController.m in Sources */,
 				550931AA1B26F3D800E243F8 /* MTGeometry.c in Sources */,
+				EB13246F1CD2FDB00045DF64 /* RippleAnimation.m in Sources */,
 				550931AD1B2714EE00E243F8 /* MMCropView.m in Sources */,
 				5509319F1B26EA8500E243F8 /* CropViewController.mm in Sources */,
-				556A92A01B70D16C00187063 /* ProgressHUD.m in Sources */,
 				5509319A1B26E45B00E243F8 /* UIImage+fixOrientation.m in Sources */,
-				554649831B2FD5BF003B2AC4 /* RippleAnimation.m in Sources */,
 				55FDF99C1B2B0851001400E1 /* UIColor+HexRepresentation.m in Sources */,
 				5509319B1B26E45B00E243F8 /* UIImageView+ContentFrame.m in Sources */,
 				550931671B26C2A500E243F8 /* AppDelegate.m in Sources */,
+				EB1324731CD30F990045DF64 /* Validador_CPF_CNPJ.m in Sources */,
 				550931921B26E30100E243F8 /* MMOpenCVHelper.mm in Sources */,
 				5509318C1B26C56A00E243F8 /* MMCameraPickerController.m in Sources */,
 				550931641B26C2A500E243F8 /* main.m in Sources */,
@@ -572,7 +615,7 @@
 		};
 		550931821B26C2A600E243F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDED73F94B41D9C2F4078307 /* Pods-MMCamScanner.debug.xcconfig */;
+			baseConfigurationReference = A2DCF1750A19FEFB648C899F /* Pods-MMCamScanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -582,7 +625,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MMCamScanner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mmscanner.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -593,7 +636,7 @@
 		};
 		550931831B26C2A600E243F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB1B01FB9460F4F5C92C9818 /* Pods-MMCamScanner.release.xcconfig */;
+			baseConfigurationReference = D6F61594593C4877146FD98B /* Pods-MMCamScanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -603,7 +646,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MMCamScanner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mmscanner.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -613,6 +656,7 @@
 		};
 		550931851B26C2A600E243F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48DEC74EED518EA06927A381 /* Pods-MMCamScannerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -633,6 +677,7 @@
 		};
 		550931861B26C2A600E243F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37C0611EAC94EDB63D74466D /* Pods-MMCamScannerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
